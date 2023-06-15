@@ -1,17 +1,19 @@
+
 import { NavLink, Outlet } from "react-router-dom"
 
-const Layout = () => {
+const Layout = ({isAuthorization}) => {
+
   return (
-    <div className="container">
+    <div >
         <nav>
             <NavLink to="/">OrderTrip</NavLink>
-            <NavLink to="/history">History</NavLink>
-            <NavLink to="/report">Report</NavLink>
-            <NavLink to="/profile">Profile</NavLink>
-            <NavLink to="/settings">Settings</NavLink>
+            {isAuthorization && <NavLink to="/history">History</NavLink> }
+            {isAuthorization && <NavLink to="/report">Report</NavLink>}
+            {isAuthorization && <NavLink to="/profile">Profile</NavLink>}
+            {isAuthorization && <NavLink to="/settings">Settings</NavLink>}
         </nav>
         <main>
-            <Outlet/>
+            <Outlet isAuthorization={isAuthorization}/>
         </main>
     </div>
   )
