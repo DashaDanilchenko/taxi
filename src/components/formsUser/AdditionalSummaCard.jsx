@@ -1,13 +1,10 @@
-import { useForm } from "react-hook-form";
 
-const AdditionalSummaCard = ({createOrderTrip}) => {
 
-    const {register, handleSubmit, reset, formState: {errors}} = useForm({
-        mode: 'onChange'
-      })
+const AdditionalSummaCard = ({register}) => {
+
 
   return (
-    <form onSubmit={handleSubmit(createOrderTrip)}>
+    <>
         <label htmlFor="add_summa">
        Додати до вартості : <input type="number" id="add_summa" name="add_summa"  {... register('add_summa',
         {required: 'is require', pattern: {
@@ -16,7 +13,7 @@ const AdditionalSummaCard = ({createOrderTrip}) => {
       }}
        )}/>
        </label> 
-       {errors.add_summa && <p>{errors.add_summa?.message}</p>}
+       {/* {errors.add_summa && <p>{errors.add_summa?.message}</p>} */}
        
        <label htmlFor="number_additional_card">
        Номер доп карточки : <input type="text" id="number_additional_card" name="number_additional_card"  {... register('patronymic', 
@@ -26,8 +23,8 @@ const AdditionalSummaCard = ({createOrderTrip}) => {
       }}
        )}/>
        </label>
-       {errors.number_additional_card && <p>{errors.number_additional_card?.message}</p>}
-    </form>
+       {/* {errors.number_additional_card && <p>{errors.number_additional_card?.message}</p>} */}
+    </>
   )
 }
 

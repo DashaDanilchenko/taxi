@@ -1,13 +1,9 @@
-import { useForm } from "react-hook-form"
 
-const Pay = ({createOrderTrip}) => {
 
-    const {register, handleSubmit, reset, formState: {errors}} = useForm({
-        mode: 'onChange'
-      })
+const Pay = ({register}) => {
 
   return (
-    <form onSubmit={handleSubmit(createOrderTrip)}>
+    <>
         <p>Оплата:</p>
 
 <input type="radio" /> <span>Готівка</span>
@@ -15,11 +11,11 @@ const Pay = ({createOrderTrip}) => {
 <input type="radio" /> <span>Бонусами</span>
 <input type="radio" /> <span>Безготівковий розрахунок</span>
 
-<button>Оновити</button>
-<button>Поповнити</button>
+<button type="button">Оновити</button>
+<button type="button">Поповнити</button>
 
 <hr />
-    </form>
+    </>
   )
 }
 

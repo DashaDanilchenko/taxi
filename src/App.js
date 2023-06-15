@@ -10,7 +10,7 @@ import History from "./components/formsUser/History";
 
 function App() {
 
-  const [isAuthorization, setIsAuthorization] = useState(false)
+  const [isAuthorization, setIsAuthorization] = useState(true)
 
   return (
     <HashRouter>

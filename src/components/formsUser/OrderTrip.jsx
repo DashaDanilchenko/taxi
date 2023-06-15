@@ -4,8 +4,6 @@ import Pay from "./Pay";
 
 const OrderTrip = ({isAuthorization}) => {
 
-    console.log(isAuthorization)
-
     const {register, handleSubmit, reset, formState: {errors}} = useForm({
         mode: 'onChange'
       })
@@ -75,7 +73,7 @@ const OrderTrip = ({isAuthorization}) => {
     </label>
     {errors.house_on && <p>{errors.house_on?.message}</p>}
 
-    <button>Додати</button>
+    <button type="button">Додати</button>
 
     <hr />
 
@@ -92,7 +90,7 @@ const OrderTrip = ({isAuthorization}) => {
     <hr />
 
 
-{isAuthorization && <Pay createOrderTrip={createOrderTrip}/>}
+{isAuthorization && <Pay register={register}/>}
 
     
 
@@ -118,7 +116,7 @@ const OrderTrip = ({isAuthorization}) => {
 
 
     {
-       isAuthorization && <AdditionalSummaCard createOrderTrip={createOrderTrip}/>
+       isAuthorization && <AdditionalSummaCard register={register}/>
     }
 
 
@@ -127,7 +125,7 @@ const OrderTrip = ({isAuthorization}) => {
     <hr />
     <p>* - Поля обов'язкові для запоинення</p>
 
-      <button>Тариф</button>
+      <button type="button">Тариф</button>
       <button>Замовити</button>
     </form>
   )
