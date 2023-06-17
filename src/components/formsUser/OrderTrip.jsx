@@ -108,8 +108,8 @@ const OrderTrip = ({isAuthorization}) => {
     <label htmlFor="phone">
     Телефон* : <input type="text" id="phone" name="phone" placeholder="+380684524875"  {... register('phone', 
     {required: 'is require', pattern: {
-       value: /^(((0[1-9]|[12]\d|3[01])\/(0[13578]|1[02])\/((19|[2-9]\d)\d{2}))|((0[1-9]|[12]\d|30)\/(0[13456789]|1[012])\/((19|[2-9]\d)\d{2}))|((0[1-9]|1\d|2[0-8])\/02\/((19|[2-9]\d)\d{2}))|(29\/02\/((1[6-9]|[2-9]\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))))$/g,
-       message:'Enter the date according to the template 31/12/2000',
+       value: /380\([0-9]{2}\)[0-9]{3}-[0-9]{2}-[0-9]{2}/,
+       message:'Enter the date according to the template 380(58)418-72-59',
     }} )}/>
     </label>
     {errors.phone && <p>{errors.phone?.message}</p>}
