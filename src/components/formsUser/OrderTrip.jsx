@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import AdditionalSummaCard from "./AdditionalSummaCard";
 import Pay from "./Pay";
 
-const OrderTrip = ({isAuthorization}) => {
+const OrderTrip = ({login}) => {
 
     const {register, handleSubmit, reset, formState: {errors}} = useForm({
         mode: 'onChange'
@@ -90,7 +90,7 @@ const OrderTrip = ({isAuthorization}) => {
     <hr />
 
 
-{isAuthorization && <Pay register={register}/>}
+{login && <Pay register={register}/>}
 
     
 
@@ -116,7 +116,7 @@ const OrderTrip = ({isAuthorization}) => {
 
 
     {
-       isAuthorization && <AdditionalSummaCard register={register}/>
+       login && <AdditionalSummaCard register={register}/>
     }
 
 

@@ -1,19 +1,24 @@
 
 import { NavLink, Outlet } from "react-router-dom"
 
-const Layout = ({isAuthorization}) => {
+const Layout = ({login}) => {
 
   return (
     <div >
         <nav>
-            <NavLink to="/">OrderTrip</NavLink>
-            {isAuthorization && <NavLink to="/history">History</NavLink> }
-            {isAuthorization && <NavLink to="/report">Report</NavLink>}
-            {isAuthorization && <NavLink to="/profile">Profile</NavLink>}
-            {isAuthorization && <NavLink to="/settings">Settings</NavLink>}
+            <NavLink to={`/${login}`}>OrderTrip</NavLink>
+            {login && <NavLink to={`/${login}/history`}>History</NavLink> }
+            {login && <NavLink to={`/${login}/report`}>Report</NavLink>}
+            {login && <NavLink to={`/${login}/profile`}>Profile</NavLink>}
+            {login && <NavLink to={`/${login}/settings`}>Settings</NavLink>}
+
+            {login && <button>Вихід</button>}
+
+            {!login && <NavLink to="/entrance">Вхід</NavLink>}
+            {!login && <NavLink to="/entrance">Рєєстрація</NavLink>}
         </nav>
         <main>
-            <Outlet isAuthorization={isAuthorization}/>
+            <Outlet login={login}/>
         </main>
     </div>
   )
