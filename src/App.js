@@ -35,17 +35,37 @@ function App() {
 
 
 
-  console.log(login)
-  console.log(password)
-  console.log(isAuthorization)
+  // console.log(login)
+  // console.log(password)
+  // console.log(isAuthorization)
+
+  function postDataUser() {
+    fetch('http://31.43.107.151:7317/api/account', { 
+          headers: {
+            'Accept': 'application/json',
+
+            'Content-Type': 'application/json ; charset=utf-8',
+            
+            'Content-Length':'X-WO-API-APP-ID: your_app_id',
+          },
+          method: "POST", 
+          body: JSON.stringify({
+            login,
+
+            password: `${isAuthorization}`,
+        
+            WebOrdersApiClientAppToken:"App_Token",
+          }),
+        });
+    }
 
 
 
-  useEffect(() => {
-    fetch('http://31.43.107.151:7317/api/version')
-    .then(response => response.json())
-    .then(json => console.log(json))
-  }, []);
+  // useEffect(() => {
+  //   fetch('http://31.43.107.151:7317//api/clients/')
+  //   .then(response => response.json())
+  //   .then(json => console.log(json))
+  // }, []);
 
 
 
@@ -63,6 +83,7 @@ function App() {
         <Route path={`/${login}/entrance`} element={<FormEntrance 
         setLogin={setLogin} 
         setPassword={setPassword}
+        postDataUser={postDataUser}
         />}/>
         <Route path='*' element={<NotFound/>}/>
       </Route>

@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form"
 import { useNavigate } from "react-router-dom"
 
 
-const FormEntrance = ({setLogin, setPassword}) => {
+const FormEntrance = ({setLogin, setPassword, postDataUser}) => {
 
   const navigate = useNavigate()
 
@@ -14,6 +14,7 @@ const FormEntrance = ({setLogin, setPassword}) => {
         const {login, password} = dataEntrance
         setLogin(login)
         setPassword(password)
+        postDataUser()
         navigate(`/${login}`, {relative: 'path'})
         console.log(dataEntrance)
       }
