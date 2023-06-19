@@ -9,6 +9,7 @@ import Settings from "./components/formsUser/Settings";
 import History from "./components/formsUser/History";
 import { sha512, utf8_to_b64 } from "./helpers";
 import FormEntrance from "./components/entrance/FormEntrance";
+import FormRegistration from "./components/entrance/FormRegistration";
 
 // async function dataPassword (a) {
  
@@ -50,11 +51,11 @@ function App() {
           },
           method: "POST", 
           body: JSON.stringify({
-            login,
+            "Login": `${login}`,
 
-            password: `${isAuthorization}`,
+            "Password":`${isAuthorization}`,
         
-            WebOrdersApiClientAppToken:"App_Token",
+            "WebOrdersApiClientAppToken":"App_Token",
           }),
         });
     }
@@ -85,6 +86,7 @@ function App() {
         setPassword={setPassword}
         postDataUser={postDataUser}
         />}/>
+        <Route path={`/${login}/registration`} element={<FormRegistration/>}/>
         <Route path='*' element={<NotFound/>}/>
       </Route>
       </Routes>

@@ -15,7 +15,7 @@ const Layout = ({login}) => {
             {login && <button>Вихід</button>}
 
             {!login && <NavLink to="/entrance">Вхід</NavLink>}
-            {!login && <NavLink to="/entrance">Рєєстрація</NavLink>}
+            {!login && <NavLink to="/registration">Рєєстрація</NavLink>}
         </nav>
         <main>
             <Outlet login={login}/>

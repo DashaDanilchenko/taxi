@@ -21,8 +21,7 @@ const FormEntrance = ({setLogin, setPassword, postDataUser}) => {
 
   return (
     <form onSubmit={handleSubmit(entrance)}>
-
-    <p>Звідки їхати:</p>    
+  
     <label htmlFor="login">
     Login* : <input type="text" id="login" name="login"
     {... register('login',
